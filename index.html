@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retirar Dinero</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-control {
+            width: 100%;
+            height: 40px;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Retirar Dinero</h1>
+        <form>
+            <div class="form-group">
+                <label for="tarjeta">Número de Tarjeta:</label>
+                <input type="text" id="tarjeta" class="form-control" placeholder="Ingresar número de tarjeta">
+            </div>
+            <div class="form-group">
+                <label for="nip">NIP:</label>
+                <input type="text" id="nip" class="form-control" placeholder="Ingresar número de identificación personal">
+            </div>
+            <div class="form-group">
+                <label for="cantidad">Cantidad a Retirar:</label>
+                <input type="number" id="cantidad" class="form-control" placeholder="Ingresar cantidad a retirar">
+            </div>
+            <div class="form-group">
+                <label for="confirmar">Confirmar Retiro:</label>
+                <input type="checkbox" id="confirmar" class="form-control">
+            </div>
+            <button class="button" id="retirar-dinero">Retirar Dinero</button>
+            <button class="button" id="cancelar">Cancelar</button>
+        </form>
+        <div id="notificacion"></div>
+    </div>
+
+    <script>
+        const tarjetaInput = document.getElementById('tarjeta');
+        const nipInput = document.getElementById('nip');
+        const cantidadInput = document.getElementById('cantidad');
+        const confirmarInput = document.getElementById('confirmar');
+        const retirarDineroButton = document.getElementById('retirar-dinero');
+        const cancelarButton = document.getElementById('cancelar');
+        const notificacionElement = document.getElementById('notificacion');
+
+        retirarDineroButton.addEventListener('click', () => {
+            if (tarjetaInput.value && nipInput.value && cantidadInput.value && confirmarInput.checked) {
+                // Realizar la acción de retirar dinero
+                notificacionElement.innerHTML = 'Retiro realizado con éxito';
+            } else {
+                notificacionElement.innerHTML = 'Por favor, complete todos los campos';
+            }
+        });
+
+        cancelarButton.addEventListener('click', () => {
+            // Cancelar la acción de retirar dinero
+            notificacionElement.innerHTML = '';
+        });
+    </script>
+</body>
+</html>
